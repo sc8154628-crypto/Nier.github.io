@@ -200,7 +200,7 @@
             </div>
             <div class="flex gap-4 items-center">
                 <!-- NEW: AI Assistant Button -->
-                <button onclick="openAIModal()" class="hover-target px-4 py-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-full font-bold transition-all hover:scale-105 shadow-lg shadow-purple-500/30 text-sm flex items-center gap-2">
+                <button onclick="openAIModal()" class="hover-target px-4 py-2 bg-brand-red text-white rounded-full font-bold transition-all hover:scale-105 shadow-lg shadow-red-500/30 text-sm flex items-center gap-2">
                     ✨ 智能顧問
                 </button>
                 <a href="#contact" class="hidden sm:inline-flex magnetic-btn hover-target px-6 py-2 bg-brand-red text-white rounded-full font-medium transition-transform shadow-lg shadow-red-500/30 hover:shadow-red-500/50 text-sm">
@@ -233,7 +233,7 @@
                 <a href="#solutions" class="magnetic-btn hover-target px-8 py-4 bg-brand-red rounded-full font-bold text-white tracking-wider shadow-xl shadow-red-500/20">
                     探索核心業務
                 </a>
-                <button onclick="openAIModal()" class="hover-target font-bold text-brand-dark border-b-2 border-brand-dark pb-1 hover:text-purple-600 hover:border-purple-600 transition-colors flex items-center gap-2">
+                <button onclick="openAIModal()" class="hover-target font-bold text-brand-dark border-b-2 border-brand-dark pb-1 hover:text-brand-red hover:border-brand-red transition-colors flex items-center gap-2">
                     ✨ 讓 AI 為您推薦方案 <span class="text-xl">→</span>
                 </button>
             </div>
@@ -447,9 +447,9 @@
                                 <circle cx="24" cy="24" r="10" stroke="#E60012" stroke-width="3"/>
                             </svg>
                         </div>
-                        <div class="text-brand-red text-xs font-bold tracking-widest mb-2 font-sans">HIGH-VOLTAGE POWER SUPPLY</div>
-                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">高精密傳感器 / 電源</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">提供奈米級精準度的工業用傳感解決方案與客製化高壓電源，完全符合日本 PSE 安規標準。</p>
+                        <div class="text-brand-red text-xs font-bold tracking-widest mb-2 font-sans">LED DRIVER</div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">高效 LED 驅動器</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">提供穩定且高效能的 LED 驅動電源解決方案，具備多重保護機制，適用於各類專業照明需求。</p>
                     </div>
                     <div class="font-bold text-sm text-brand-dark flex items-center gap-2 group cursor-pointer">
                         了解更多 <span class="transform group-hover:translate-x-2 transition-transform">→</span>
@@ -467,9 +467,9 @@
                                 <path d="M16 24 Q20 18 24 24 Q28 30 32 24" stroke="#009944" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <div class="text-brand-green text-xs font-bold tracking-widest mb-2 font-sans">DIMMABLE LED CONTROLLER</div>
-                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">調光型 LED 控制器</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">高效節能的調光控制解決方案，適用於商業照明、智慧建築及高階工業應用場景。</p>
+                        <div class="text-brand-green text-xs font-bold tracking-widest mb-2 font-sans">DIMMER</div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">智慧調光器</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">支援多種業界調光協議，實現平滑無頻閃的精準光線控制，提升空間氛圍與節能效益。</p>
                     </div>
                     <div class="font-bold text-sm text-brand-dark flex items-center gap-2 group cursor-pointer">
                         了解更多 <span class="transform group-hover:translate-x-2 transition-transform">→</span>
@@ -483,13 +483,12 @@
                         <div class="flex justify-between items-start mb-8">
                             <span class="text-4xl font-black text-gray-100">03</span>
                             <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
-                                <path d="M12 36 L24 12 L36 36" stroke="#E60012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M16 28 H32" stroke="#E60012" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M24 8 L24 40 M24 8 L34 18 L14 30 M24 40 L34 30 L14 18" stroke="#E60012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <div class="text-brand-red text-xs font-bold tracking-widest mb-2 font-sans">LCD TUBE LIGHTING</div>
-                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">液晶燈管照明</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">累計銷售超過 80 萬支，日本市場占有率第一，以穩定品質持續深耕高階照明領域。</p>
+                        <div class="text-brand-red text-xs font-bold tracking-widest mb-2 font-sans">BLUETOOTH & SENSOR</div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">藍牙與感測模組</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">結合先進的藍牙網路與高靈敏環境感測器，打造次世代無縫連線的物聯網智慧控制系統。</p>
                     </div>
                     <div class="font-bold text-sm text-brand-dark flex items-center gap-2 group cursor-pointer">
                         了解更多 <span class="transform group-hover:translate-x-2 transition-transform">→</span>
@@ -504,12 +503,32 @@
                             <span class="text-4xl font-black text-gray-100">04</span>
                             <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
                                 <rect x="14" y="8" width="20" height="32" rx="3" stroke="#009944" stroke-width="3"/>
-                                <path d="M20 14 H28 M20 20 H28 M20 26 H24" stroke="#009944" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M24 16 L20 24 H28 L24 32" stroke="#009944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <div class="text-brand-green text-xs font-bold tracking-widest mb-2 font-sans">CUSTOMIZED CHARGER</div>
+                        <div class="text-brand-green text-xs font-bold tracking-widest mb-2 font-sans">CHARGER</div>
                         <h3 class="text-2xl font-bold mb-4 text-brand-dark">客製化充電器</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">從規格訂定到量產交貨，提供完整客製化開發流程，確保每一件產品具備世界級水準。</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">專為特定設備規格設計的高效充電模組，從規格訂定到量產交貨，嚴格把關多國安全認證。</p>
+                    </div>
+                    <div class="font-bold text-sm text-brand-dark flex items-center gap-2 group cursor-pointer">
+                        了解更多 <span class="transform group-hover:translate-x-2 transition-transform">→</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card shrink-0 hover-target pointer-events-auto">
+                <div class="product-card-inner glass-panel p-8 md:p-10 flex flex-col justify-between border-t-4 border-t-brand-red">
+                    <div>
+                        <div class="flex justify-between items-start mb-8">
+                            <span class="text-4xl font-black text-gray-100">05</span>
+                            <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+                                <path d="M12 36 L24 12 L36 36" stroke="#E60012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 28 H32" stroke="#E60012" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="text-brand-red text-xs font-bold tracking-widest mb-2 font-sans">LED LIGHTING</div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">專業 LED 照明</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">提供兼具美學與高發光效率的燈具產品，包含長年穩居日本市場領先地位的液晶燈管解決方案。</p>
                     </div>
                     <div class="font-bold text-sm text-brand-dark flex items-center gap-2 group cursor-pointer">
                         了解更多 <span class="transform group-hover:translate-x-2 transition-transform">→</span>
@@ -517,6 +536,7 @@
                 </div>
             </div>
             
+            <div class="hidden lg:block w-[15vw] shrink-0"></div>
         </div>
     </section>
 
@@ -607,7 +627,7 @@
                     <textarea rows="4" required class="w-full bg-white/80 border border-gray-300 rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors hover-target resize-none shadow-sm"></textarea>
                 </div>
                 <div class="text-center pt-6">
-                    <button type="submit" class="magnetic-btn hover-target px-14 py-4 bg-brand-dark text-white rounded-full font-bold tracking-widest text-lg w-full md:w-auto hover:bg-brand-red transition-colors shadow-xl">
+                    <button type="submit" class="magnetic-btn hover-target px-14 py-4 bg-brand-red text-white rounded-full font-bold tracking-widest text-lg w-full md:w-auto hover:bg-[#c4000f] transition-colors shadow-xl">
                         送出訊息 SUBMIT
                     </button>
                     <p id="form-status" class="mt-4 text-sm font-bold hidden"></p>
@@ -617,25 +637,25 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#111111] py-16 border-t border-gray-800 text-white">
+    <footer class="bg-brand-red pt-32 pb-16 text-white">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center gap-3 mb-6">
                     <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="15" y="20" width="70" height="20" fill="#009944"/>
                         <rect x="40" y="40" width="20" height="30" fill="#009944"/>
-                        <rect x="40" y="75" width="20" height="20" fill="#E60012"/>
+                        <rect x="40" y="75" width="20" height="20" fill="#ffffff"/>
                     </svg>
                     <div class="flex flex-col">
                         <span class="text-xl font-bold tracking-widest leading-tight">台灣松尾</span>
-                        <span class="text-[10px] text-gray-400 font-sans tracking-widest">TAIWAN MATSUO</span>
+                        <span class="text-[10px] text-white/80 font-sans tracking-widest">TAIWAN MATSUO</span>
                     </div>
                 </div>
-                <p class="text-gray-400 text-sm max-w-sm leading-relaxed">敬天愛人．共創價值。持續以創新技術引領電力電子產業升級，為全球客戶提供最卓越的製造代工服務與客製化解決方案。</p>
+                <p class="text-white/80 text-sm max-w-sm leading-relaxed">敬天愛人．共創價值。持續以創新技術引領電力電子產業升級，為全球客戶提供最卓越的製造代工服務與客製化解決方案。</p>
             </div>
             <div>
-                <h4 class="font-bold mb-6 text-brand-green tracking-widest text-sm uppercase">業務與服務</h4>
-                <ul class="text-gray-400 text-sm space-y-3">
+                <h4 class="font-bold mb-6 text-white tracking-widest text-sm uppercase opacity-90">業務與服務</h4>
+                <ul class="text-white/80 text-sm space-y-3">
                     <li><a href="#" class="hover:text-white transition-colors">線材加工與製造代工</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">客製化高壓電源</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">調光型 LED 控制器</a></li>
@@ -643,16 +663,16 @@
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-6 text-brand-red tracking-widest text-sm uppercase">聯絡資訊</h4>
-                <ul class="text-gray-400 text-sm space-y-3">
+                <h4 class="font-bold mb-6 text-white tracking-widest text-sm uppercase opacity-90">聯絡資訊</h4>
+                <ul class="text-white/80 text-sm space-y-3">
                     <li class="font-sans">T / +886-2-0000-0000</li>
                     <li class="font-sans">F / +886-2-0000-0001</li>
                     <li class="font-sans">E / info@taiwanmatsuo.com.tw</li>
-                    <li class="mt-4 pt-4 border-t border-gray-800">100 台北市中正區<br>松尾科技大道 88 號 10 樓</li>
+                    <li class="mt-4 pt-4 border-t border-white/20">100 台北市中正區<br>松尾科技大道 88 號 10 樓</li>
                 </ul>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs tracking-wider font-sans">
+        <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center text-white/70 text-xs tracking-wider font-sans">
             <p>&copy; 2026 TAIWAN MATSUO CO., LTD. ALL RIGHTS RESERVED.</p>
             <p class="mt-2 md:mt-0">ISO 9001:2015 CERTIFIED</p>
         </div>
@@ -693,8 +713,8 @@
 
             <!-- Input Area -->
             <div class="relative mt-auto">
-                <textarea id="ai-input" rows="2" class="w-full bg-white border-2 border-gray-200 rounded-2xl pl-5 pr-16 py-4 text-brand-dark focus:outline-none focus:border-purple-500 focus:ring-0 transition-colors resize-none text-sm leading-relaxed shadow-sm hover-target" placeholder="例如：我們正在開發一款需要高度穩定電源的醫療儀器..."></textarea>
-                <button id="ai-submit-btn" onclick="askGemini()" class="absolute right-3 bottom-3 w-10 h-10 flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white rounded-xl transition-colors hover-target disabled:opacity-50 disabled:cursor-not-allowed">
+                <textarea id="ai-input" rows="2" class="w-full bg-white border-2 border-gray-200 rounded-2xl pl-5 pr-16 py-4 text-brand-dark focus:outline-none focus:border-brand-red focus:ring-0 transition-colors resize-none text-sm leading-relaxed shadow-sm hover-target" placeholder="例如：我們正在開發一款需要高度穩定電源的醫療儀器..."></textarea>
+                <button id="ai-submit-btn" onclick="askGemini()" class="absolute right-3 bottom-3 w-10 h-10 flex items-center justify-center bg-brand-red hover:bg-[#c4000f] text-white rounded-xl transition-colors hover-target disabled:opacity-50 disabled:cursor-not-allowed">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
             </div>
@@ -1122,7 +1142,7 @@
             } else {
                 // Formatting basic markdown for bold texts and linebreaks
                 const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-brand-red">$1</strong>').replace(/\n/g, '<br>');
-                const borderClass = isUser ? 'bg-purple-600 text-white rounded-tr-sm border-purple-600' : 'bg-gray-50 border-gray-100 text-gray-700 rounded-tl-sm';
+                const borderClass = isUser ? 'bg-brand-red text-white rounded-tr-sm border-brand-red' : 'bg-gray-50 border-gray-100 text-gray-700 rounded-tl-sm';
                 messageHTML = `<div class="border p-4 rounded-2xl ${borderClass} text-sm leading-relaxed max-w-[85%]">${formattedText}</div>`;
             }
 
