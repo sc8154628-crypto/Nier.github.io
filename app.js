@@ -442,8 +442,8 @@ function runPageMotion() {
     scale: 0.92,
     force3D: true,
   });
-  // 動畫前先清掉 img filter，讓 frame 動畫期間不觸發昂貴的 filter repaint
-  gsap.set(".aperture-frame img", { filter: "none" });
+  // 圖片一開始就是灰階，動畫期間維持灰階不轉色
+  gsap.set(".aperture-frame img", { filter: "grayscale(1) contrast(1.05) brightness(0.88)" });
 
   const hero = gsap.timeline({ delay: 3.5, defaults: { ease: "power3.out" } });
   hero
@@ -474,12 +474,6 @@ function runPageMotion() {
       stagger: { each: 0.15, from: "start" },
       ease: "expo.out",
       force3D: true,
-      // 動畫全部完成後才套上 grayscale，避免 filter 在動畫中增加 repaint 負擔
-      onComplete() {
-        gsap.set(".aperture-frame img", {
-          filter: "grayscale(1) contrast(1.05) brightness(0.88)",
-        });
-      },
     }, "-=0.82")
     .to(".aperture-caption .split-char", {
       yPercent: 0,
