@@ -1,0 +1,505 @@
+/* ============================================================
+   NierZooM v3 — About Page
+   Extends styles.css (variables + header + footer shared)
+   ============================================================ */
+
+
+/* ══════════════════════════════════════════════════════════
+   SHARED SECTION SCAFFOLDING
+══════════════════════════════════════════════════════════ */
+
+/* Watermark section number — same treatment as .proj-bg-num */
+.v3a-sec-num {
+  position: absolute;
+  font-size: clamp(160px, 22vw, 300px);
+  font-weight: 900;
+  font-family: var(--sans);
+  color: var(--ink);
+  opacity: 0;                  /* animated to 0.032 by GSAP */
+  top: 50%;
+  left: calc(var(--pad-x) - 0.04em);
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+/* Label + heading column shared across sections */
+.v3a-sec-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  opacity: 0;
+}
+
+.v3a-sec-heading {
+  font-family: var(--thin);
+  font-size: clamp(30px, 4.5vw, 64px);
+  font-weight: 200;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  opacity: 0;
+}
+
+.v3a-sec-label-col {
+  flex-shrink: 0;
+  width: clamp(140px, 18vw, 220px);
+}
+
+/* Generic section wrapper */
+.v3a-section {
+  position: relative;
+  padding: 120px var(--pad-x);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.v3a-sec-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: clamp(48px, 7vw, 100px);
+  align-items: flex-start;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════════════════ */
+.v3a-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 120px var(--pad-x) 80px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+/* Huge background brand name — lighter than watermark nums */
+.v3a-hero-bg-text {
+  position: absolute;
+  bottom: -0.12em;
+  right: -0.04em;
+  font-family: var(--sans);
+  font-size: clamp(200px, 30vw, 480px);
+  font-weight: 900;
+  color: var(--ink);
+  opacity: 0.028;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.v3a-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.v3a-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.v3a-heading {
+  font-family: var(--thin);
+  font-size: 35px;
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  margin-bottom: 40px;
+}
+
+/* .ht-wrap / .ht / .ht-thin already defined in styles.css */
+
+.v3a-role {
+  font-size: clamp(13px, 1.2vw, 16px);
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.v3a-hero-foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 64px;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.v3a-since,
+.v3a-location {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   01 — INTRODUCTION
+══════════════════════════════════════════════════════════ */
+.v3a-bio-grid {
+  align-items: flex-start;
+}
+
+.v3a-bio-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.v3a-bio-line {
+  font-family: var(--thin);
+  font-size: clamp(18px, 2.2vw, 30px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--ink);
+  opacity: 0;
+}
+
+.v3a-bio-highlight {
+  color: rgba(240, 236, 227, 0.72);
+}
+
+.v3a-bio-highlight em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   02 — NUMBERS / STATS
+══════════════════════════════════════════════════════════ */
+.v3a-stats-section .v3a-sec-inner {
+  flex-direction: column;
+  gap: 48px;
+}
+
+.v3a-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(24px, 4vw, 60px);
+  width: 100%;
+}
+
+.v3a-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  opacity: 0;
+}
+
+.v3a-stat-num-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.v3a-stat-num {
+  font-family: var(--sans);
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(240, 236, 227, 0.35);
+}
+
+.v3a-stat-plus {
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 200;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.v3a-stat-label {
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   03 — CAPABILITIES / SKILLS
+══════════════════════════════════════════════════════════ */
+.v3a-skills-layout {
+  align-items: flex-start;
+}
+
+.v3a-skills-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.v3a-skill-card {
+  background: var(--bg);
+  padding: clamp(20px, 2.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  transition: background 0.3s;
+  opacity: 0;
+}
+
+.v3a-skill-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  transition: border-color 0.3s;
+  pointer-events: none;
+}
+
+.v3a-skill-card:hover {
+  background: rgba(198, 154, 66, 0.04);
+}
+
+.v3a-skill-card:hover::after {
+  border-color: rgba(198, 154, 66, 0.35);
+}
+
+.v3a-skill-icon {
+  font-size: 16px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.v3a-skill-name {
+  font-family: var(--thin);
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.v3a-skill-desc {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--muted);
+  flex: 1;
+}
+
+.v3a-skill-tools {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-top: 4px;
+}
+
+.v3a-skill-tools li {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(198, 154, 66, 0.3);
+  padding: 3px 8px;
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   04 — JOURNEY / TIMELINE
+══════════════════════════════════════════════════════════ */
+.v3a-journey-layout {
+  align-items: flex-start;
+}
+
+.v3a-timeline {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.v3a-tl-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  opacity: 0;
+}
+
+.v3a-tl-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.v3a-tl-year {
+  font-family: var(--thin);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  padding-top: 3px;
+  white-space: nowrap;
+}
+
+.v3a-tl-role {
+  font-family: var(--thin);
+  font-size: clamp(16px, 1.8vw, 24px);
+  font-weight: 300;
+  letter-spacing: -0.005em;
+  margin-bottom: 8px;
+}
+
+.v3a-tl-desc {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   05 — CONTACT
+══════════════════════════════════════════════════════════ */
+.v3a-contact {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 100px var(--pad-x);
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.v3a-contact-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.v3a-contact .v3a-sec-label {
+  margin-bottom: 32px;
+}
+
+.v3a-contact-heading {
+  font-family: var(--thin);
+  font-size: clamp(48px, 8.9vw, 132px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-bottom: 40px;
+}
+
+/* Reuse .ht-wrap / .ht classes — headings need the same overflow-hidden trick */
+
+.v3a-contact-sub {
+  font-size: clamp(15px, 1.3vw, 18px);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 56px;
+  opacity: 0;
+}
+
+.v3a-contact-links {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  opacity: 0;
+}
+
+.v3a-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 36px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.v3a-cta-primary {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.v3a-cta-primary:hover {
+  background: #e0b355;
+  transform: translateY(-2px);
+}
+
+.v3a-cta-secondary {
+  border: 1px solid rgba(240, 236, 227, 0.25);
+  color: var(--ink);
+}
+
+.v3a-cta-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.v3a-cta-arrow {
+  font-size: 16px;
+  transition: transform 0.3s;
+}
+
+.v3a-cta-link:hover .v3a-cta-arrow {
+  transform: translate(3px, -3px);
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .v3a-section { padding: 80px var(--pad-x); }
+  .v3a-hero    { padding: 100px var(--pad-x) 60px; }
+
+  .v3a-sec-inner { flex-direction: column; gap: 36px; }
+  .v3a-sec-label-col { width: 100%; }
+
+  .v3a-stats-row { grid-template-columns: repeat(2, 1fr); }
+
+  .v3a-skills-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .v3a-contact { min-height: auto; padding: 80px var(--pad-x); }
+}
+
+@media (max-width: 540px) {
+  .v3a-stats-row { grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  .v3a-skills-grid { grid-template-columns: 1fr; }
+
+  .v3a-tl-item { grid-template-columns: 92px 1fr; gap: 16px; }
+  .v3a-tl-year { font-size: 12px; }
+
+  .v3a-contact-links { flex-direction: column; gap: 16px; }
+
+  .v3a-cta-link { justify-content: center; }
+}

@@ -544,7 +544,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "hikariro",
-      "title": "Hikariro",
+      "title": "HikariRO",
       "url": "https://hikariro.id/",
       "category": "Brand Website",
       "added": true,
@@ -571,6 +571,7 @@ window.PORTFOLIO_DATA = {
         "Tepercaya Anda"
       ],
       "localCover": "assets/images/web-works/hikariro.webp",
+      "localVideo": "assets/videos/hikariro-entry.mp4",
       "sourceUrl": "https://hikariro.id/",
       "year": 2026
     }
