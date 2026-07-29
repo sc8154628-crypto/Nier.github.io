@@ -82,6 +82,24 @@
   overflow: hidden;
 }
 
+/* Reference-film treatment used only by the About Me content. */
+.about-page .v3a-hero,
+.about-page .v3a-section {
+  background: #164244;
+  border-color: rgba(246, 242, 232, 0.16);
+}
+
+.about-page .v3a-section:nth-of-type(2n) { background: #102f5b; }
+
+.about-page .v3a-hero::before,
+.about-page .v3a-section::before {
+  content: "";
+  position: absolute;
+  inset: 32px;
+  border: 1px solid rgba(246, 242, 232, 0.12);
+  pointer-events: none;
+}
+
 /* Huge background brand name — lighter than watermark nums */
 .v3a-hero-bg-text {
   position: absolute;
@@ -96,6 +114,35 @@
   pointer-events: none;
   user-select: none;
   z-index: 0;
+}
+
+.v3a-hero-bg-text {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #f6f2e8;
+  opacity: 0.07;
+}
+
+.v3a-heading,
+.v3a-sec-heading {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.v3a-heading { color: #f6f2e8; }
+.v3a-eyebrow,
+.v3a-sec-label { color: #f6d85c; }
+
+.v3a-hero-inner::after {
+  content: "About / 01";
+  position: absolute;
+  top: -52px;
+  right: 0;
+  color: rgba(246, 242, 232, 0.62);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .v3a-hero-inner {
@@ -162,6 +209,34 @@
   align-items: flex-start;
 }
 
+.v3a-bio-grid {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.55fr) minmax(0, 1.45fr);
+  gap: clamp(42px, 8vw, 140px);
+}
+
+.v3a-bio-line { color: #f6f2e8; }
+
+.v3a-stats-section .v3a-sec-inner { gap: 64px; }
+.v3a-stat { border-color: rgba(246, 242, 232, 0.26); }
+.v3a-stat-num { color: #f6d85c; }
+
+.v3a-skills-grid {
+  background: rgba(246, 242, 232, 0.2);
+  border-color: rgba(246, 242, 232, 0.2);
+}
+.v3a-skill-card { background: rgba(53, 94, 128, 0.42); }
+
+.v3a-timeline { border-bottom: 1px solid rgba(246, 242, 232, 0.18); }
+.v3a-tl-item { border-color: rgba(246, 242, 232, 0.2); }
+
+@media (max-width: 900px) {
+  .about-page .v3a-hero::before,
+  .about-page .v3a-section::before { inset: 18px; }
+  .v3a-bio-grid { display: flex; }
+  .v3a-hero-inner::after { top: -34px; }
+}
+
 .v3a-bio-text {
   flex: 1;
   display: flex;
@@ -198,7 +273,7 @@
 
 .v3a-stats-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(24px, 4vw, 60px);
   width: 100%;
 }

@@ -72,6 +72,7 @@ function getAllProjects() {
     category: p.category || "Graphic Design",
     year: p.year || new Date((p.publishedOn || 0) * 1000).getFullYear() || 2021,
     imgSrc: p.localCover ? ("../" + p.localCover) : p.coverUrl,
+    fallbackImgSrc: p.coverUrl || null,
     linkUrl: p.sourceUrl,
     linkLabel: "View on Behance ↗",
     dominantColor: p.dominantColor || { r: 30, g: 30, b: 30 },
@@ -83,6 +84,7 @@ function getAllProjects() {
     category: p.category || "Web Design",
     year: p.year || 2026,
     imgSrc: p.localCover ? ("../" + p.localCover) : null,
+    fallbackImgSrc: p.coverUrl || null,
     videoSrc: p.localVideo || null,
     linkUrl: p.sourceUrl || p.url,
     linkLabel: "View Website ↗",
@@ -110,6 +112,7 @@ function buildProjects(projects) {
     const safeCategory = escapeHtml(p.category);
     const safeYear = escapeHtml(p.year);
     const safeImgSrc = p.imgSrc ? escapeHtml(p.imgSrc) : "";
+    const safeFallbackImgSrc = p.fallbackImgSrc ? escapeHtml(p.fallbackImgSrc) : "";
     const safeVideoSrc = p.videoSrc ? escapeHtml(p.videoSrc) : "";
     const safeLink = escapeHtml(safeExternalUrl(p.linkUrl));
     const safeLinkLabel = escapeHtml(p.linkLabel);
@@ -126,19 +129,27 @@ function buildProjects(projects) {
     const mediaTag = p.videoSrc
       ? `<video class="proj-visual" ${playbackAttrs} playsinline preload="metadata" poster="${safeImgSrc}" aria-label="${safeTitle} preview"><source src="${safeVideoSrc}" type="video/mp4" /></video>`
       : p.imgSrc
-        ? `<img class="proj-visual" src="${safeImgSrc}" alt="${safeTitle}" loading="lazy" decoding="async" />`
+        ? `<img class="proj-visual" src="${safeImgSrc}" data-fallback-src="${safeFallbackImgSrc}" alt="${safeTitle}" loading="lazy" decoding="async" />`
         : `<div class="proj-img-placeholder"></div>`;
 
     const section = document.createElement("section");
     section.className = `proj-section${isReversed ? " is-reversed" : ""}`;
     section.id = `proj-${num}`;
     section.dataset.index = num;
+    section.style.setProperty("--project-accent", bgColor);
 
     section.innerHTML = `
       <div class="proj-bg-num" aria-hidden="true">${num}</div>
+      <div class="proj-project-code" aria-hidden="true">Archive / ${num} / ${safeYear}</div>
 
       <div class="proj-media">
-        <div class="proj-img-wrap">${mediaTag}</div>
+        <div class="proj-img-wrap">
+          ${mediaTag}
+          <span class="proj-frame proj-frame--tl" aria-hidden="true"></span>
+          <span class="proj-frame proj-frame--tr" aria-hidden="true"></span>
+          <span class="proj-frame proj-frame--bl" aria-hidden="true"></span>
+          <span class="proj-frame proj-frame--br" aria-hidden="true"></span>
+        </div>
         <div class="proj-color-block" style="--proj-color: ${bgColor}">
           <span class="proj-category-label">${safeCategory}</span>
         </div>
@@ -148,7 +159,7 @@ function buildProjects(projects) {
       </div>
 
       <div class="proj-info">
-        <div class="proj-num-label">${num}</div>
+        <div class="proj-num-label">Project / ${num}</div>
         <h2 class="proj-title">${safeTitle}</h2>
         <div class="proj-divider"></div>
         <div class="proj-meta">
@@ -167,10 +178,15 @@ function buildProjects(projects) {
 
     const visual = section.querySelector(".proj-visual");
     visual?.addEventListener("error", () => {
+      const fallbackSrc = visual.dataset.fallbackSrc;
+      if (fallbackSrc && visual.getAttribute("src") !== fallbackSrc) {
+        visual.setAttribute("src", fallbackSrc);
+        return;
+      }
       visual.replaceWith(Object.assign(document.createElement("div"), {
         className: "proj-img-placeholder",
       }));
-    }, { once: true });
+    });
 
     const video = section.querySelector("video");
     if (video && !prefersReducedMotion) {

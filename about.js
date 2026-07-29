@@ -13,7 +13,7 @@ function syncPortfolioStats() {
 
   const projects = [...(data.behance || []), ...(data.webWorks || [])];
   const values = {
-    years: Math.max(0, new Date().getFullYear() - 2021),
+    years: 6,
     projects: projects.length,
     categories: new Set(projects.map(project => project.category).filter(Boolean)).size,
     web: (data.webWorks || []).length,
