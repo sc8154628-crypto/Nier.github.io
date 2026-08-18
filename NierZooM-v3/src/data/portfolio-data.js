@@ -20,6 +20,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/c31ea0216540203.Y3JvcCw3OTkxLDYyNTEsMjI1NSww.jpg",
       "localCover": "assets/images/behance/01-20241018-.jpg",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/01-01-20241018-.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -54,6 +55,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/29db84140949083.Y3JvcCwzMjE5LDI1MTgsMCwzODk2.jpg",
       "localCover": "assets/images/behance/02-Landing-page-Design-color-contact-lens.jpg",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/02-02-Landing-page-Design-color-contact-lens.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -88,6 +90,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/90ebbe139335911.Y3JvcCwxMDk1LDg1Nyw0MCww.jpg",
       "localCover": "assets/images/behance/03-Eyewear-Landing-Page-Design.jpg",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/03-03-Eyewear-Landing-Page-Design.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -122,6 +125,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/cd1675139328113.Y3JvcCwxMDE1LDc5NCwxMDAsMA.jpg",
       "localCover": "assets/images/behance/04-Color-contrast-lens-Landing-page-Design.jpg",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/04-04-Color-contrast-lens-Landing-page-Design.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -156,6 +160,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/37ac88136767675.Y3JvcCwxOTk5LDE1NjQsMCwzODY.jpg",
       "localCover": "assets/images/behance/05-Logo-Design-Marketlong-Fresh-.jpg",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/05-05-Logo-Design-Marketlong-Fresh-.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -190,6 +195,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/bf9839125424853.Y3JvcCwxMzgwLDEwODAsMjIyLDA.png",
       "localCover": "assets/images/behance/06--Wood-Music-box.png",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/06-06--Wood-Music-box.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -224,6 +230,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/f72743124789997.Y3JvcCwxMDgwLDg0NCwwLDExNw.gif",
       "localCover": "assets/images/behance/07-BANNER-Illustration.gif",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/07-07-BANNER-Illustration.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -258,6 +265,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/d1621f123483253.62add8c26a28c.png",
       "localCover": "assets/images/behance/08--composed-photo.png",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/08-08--composed-photo.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -292,6 +300,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/4bf99b123101167.Y3JvcCwxMjgzLDEwMDMsMzIwLDI0Nw.jpg",
       "localCover": "assets/images/behance/09--Landing-Page-Design-Baby-Body-wash.jpg",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/09-09--Landing-Page-Design-Baby-Body-wash.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -326,6 +335,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/c6f4b9121241289.Y3JvcCw5NTgsNzUwLDE5Niww.jpg",
       "localCover": "assets/images/behance/10-Collagen-Packaging-Design-.jpg",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/10-10-Collagen-Packaging-Design-.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -360,6 +370,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/f00b4a121306305.Y3JvcCwxMTkyLDkzMyw2NCww.jpg",
       "localCover": "assets/images/behance/11-Master-Tai-Chicken-Essence-Packaging-Design-.jpg",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/11-11-Master-Tai-Chicken-Essence-Packaging-Design-.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -394,6 +405,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/563caf121143993.Y3JvcCw4MTksNjQwLDcwLDI4Ng.jpg",
       "localCover": "assets/images/behance/12-_Landing-page-Design.jpg",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/12-12-_Landing-page-Design.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -428,6 +440,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/314689120740315.Y3JvcCwzMTcxLDI0ODEsMTQxLDA.jpg",
       "localCover": "assets/images/behance/13-IC-STUDIO-VI-DESIGN.jpg",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/13-13-IC-STUDIO-VI-DESIGN.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -462,6 +475,7 @@ window.PORTFOLIO_DATA = {
       },
       "coverUrl": "https://mir-s3-cdn-cf.behance.net/projects/original/85ecfb117426693.Y3JvcCw5OTMsNzc3LDExMCww.jpg",
       "localCover": "assets/images/behance/14-NARRATE-business-card-design.jpg",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/14-14-NARRATE-business-card-design.webp",
       "summary": "Privacy",
       "details": [
         "Privacy",
@@ -507,6 +521,7 @@ window.PORTFOLIO_DATA = {
         "從閃爍到穩亮：實戰掌握調光開關配線指南"
       ],
       "localCover": "assets/images/web-works/greattop.png",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/15-greattop.webp",
       "sourceUrl": "https://greattop-tw.com/zh_tw/",
       "year": 2026
     },
@@ -539,6 +554,7 @@ window.PORTFOLIO_DATA = {
         "LIGHTING"
       ],
       "localCover": "assets/images/web-works/matsuo.png",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/16-matsuo.webp",
       "sourceUrl": "https://www.matsuo.com.tw/",
       "year": 2026
     },
@@ -571,6 +587,7 @@ window.PORTFOLIO_DATA = {
         "Tepercaya Anda"
       ],
       "localCover": "assets/images/web-works/hikariro.png",
+      "optimizedCover": "NierZooM-v3/assets/images/optimized/17-hikariro.webp",
       "localVideo": "assets/videos/hikariro-entry.mp4",
       "sourceUrl": "https://hikariro.id/",
       "year": 2026
