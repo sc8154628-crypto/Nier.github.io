@@ -112,7 +112,7 @@ img, video { display: block; max-width: 100%; }
 .project-title { padding: clamp(100px, 14vw, 190px) var(--pad) 40px; }
 .project-title h1 { margin: 0; font-size: clamp(37px, 8vw, 121px); font-weight: 400; line-height: .82; text-transform: uppercase; }
 .project-description { display: grid; grid-template-columns: 1.4fr .8fr; gap: 70px; padding: 30px var(--pad) 100px; border-top: 1px solid var(--line); }
-.project-description > p { max-width: 850px; margin: 0; font-size: clamp(19px, 2.4vw, 34px); text-transform: uppercase; }
+.project-description > p { max-width: 850px; margin: 0; font-size: clamp(19px, 2.4vw, 34px); text-transform: uppercase; white-space: pre-line; }
 .project-facts { display: grid; gap: 16px; align-content: start; font-size: 12px; text-transform: uppercase; }
 .project-media { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; padding: 0 var(--pad) 100px; }
 .project-media figure { margin: 0; background: #eee; }

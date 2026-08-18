@@ -114,7 +114,18 @@
       "GreatTop_CIS_Redesign_2025_page-0010.jpg", "GreatTop_CIS_Redesign_2025_page-0011.jpg", "GreatTop_CIS_Redesign_2025_page-0012.jpg",
       "GreatTop_CIS_Redesign_2025_page-0013.jpg", "GreatTop_CIS_Redesign_2025_page-0014.jpg",
     ]),
-    "web-hikariro": projectMedia("03-hikariro", ["hikariro-entry.mp4", "PAGE-01.png", "PAGE-02.png", "PAGE-03.png"]),
+    "web-hikariro": projectMedia("03-hikariro", [
+      "hikariro-entry.mp4",
+      "HIKARIRO_CIS_Landscape_2026_v2_page-0001.jpg", "HIKARIRO_CIS_Landscape_2026_v2_page-0002.jpg",
+      "HIKARIRO_CIS_Landscape_2026_v2_page-0003.jpg", "HIKARIRO_CIS_Landscape_2026_v2_page-0004.jpg",
+      "HIKARIRO_CIS_Landscape_2026_v2_page-0005.jpg", "HIKARIRO_CIS_Landscape_2026_v2_page-0006.jpg",
+      "HIKARIRO_CIS_Landscape_2026_v2_page-0007.jpg", "HIKARIRO_CIS_Landscape_2026_v2_page-0008.jpg",
+      "HIKARIRO_CIS_Landscape_2026_v2_page-0009.jpg", "HIKARIRO_CIS_Landscape_2026_v2_page-0010.jpg",
+      "HIKARIRO_CIS_Landscape_2026_v2_page-0011.jpg", "HIKARIRO_CIS_Landscape_2026_v2_page-0012.jpg",
+      "HIKARIRO_CIS_Landscape_2026_v2_page-0013.jpg", "HIKARIRO_CIS_Landscape_2026_v2_page-0014.jpg",
+      "HIKARIRO_CIS_Landscape_2026_v2_page-0015.jpg", "HIKARIRO_CIS_Landscape_2026_v2_page-0016.jpg",
+      "HIKARIRO_CIS_Landscape_2026_v2_page-0017.jpg", "HIKARIRO_CIS_Landscape_2026_v2_page-0018.jpg",
+    ]),
     "web-matsuo": projectMedia("02-matsuo", ["Home_01.png"]),
   };
 
@@ -188,6 +199,7 @@
   if (cityGod) {
     cityGod.cover = asset("assets/projects/16-/00.png");
     cityGod.gallery = projectMedia("16-", ["00.png", "01.png", "02.png", "03.png", "04.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg"]);
+    cityGod.description = "2024 - 城市專案（金門迎城隍）\n\n與插畫家小虎聯名偕同合作設計之商品、DP 點陳列設計。\n\n從主視覺 Reference 提案，到周邊商品、互動立體陳列物的創意發想到製作，擬定合適的設計方式執行。\n\n為金門年度盛事「迎城隍」增添一層有趣風采，搭配可愛又療癒的吉祥物，讓原本宗教色彩濃厚的民俗活動增添一抹輕鬆色彩！\n\n聯名商品：香火袋、抱枕、小虎扇。\nDP 點陳列。";
   }
 
   const hiddenWorkKeys = new Set([
