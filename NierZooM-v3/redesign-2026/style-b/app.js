@@ -316,8 +316,9 @@
     const previous = works[(index - 1 + works.length) % works.length];
     const next = works[(index + 1) % works.length];
     const media = projectMediaMarkup(work);
-    const description = work.description || `A selected ${work.category.toLowerCase()} project. This page brings together the final visual direction, applications and project details.`;
-    return `<header class="project-title"><p>${escapeHtml(work.category)} / ${work.year}</p><h1>${escapeHtml(work.title)}</h1></header><section class="project-description reveal"><p>${escapeHtml(description)}</p><div class="project-facts"><span>Year / ${work.year}</span><span>Scope / ${escapeHtml(work.category)}</span><span>Images / ${work.gallery.length}</span>${work.externalUrl ? `<a href="${escapeHtml(work.externalUrl)}" target="_blank" rel="noreferrer noopener">Visit website ↗</a>` : ""}</div></section><section class="project-media">${media}</section><nav class="project-nav"><a href="${projectHref(previous)}">Prev</a><a href="works.html">Back</a><a href="${projectHref(next)}">Next</a></nav>`;
+    const description = String(work.description || "").trim();
+    const descriptionMarkup = description ? `<p>${escapeHtml(description)}</p>` : "";
+    return `<header class="project-title"><p>${escapeHtml(work.category)} / ${work.year}</p><h1>${escapeHtml(work.title)}</h1></header><section class="project-description reveal"><div class="project-facts"><span>Year / ${work.year}</span><span>Scope / ${escapeHtml(work.category)}</span><span>Images / ${work.gallery.length}</span>${work.externalUrl ? `<a href="${escapeHtml(work.externalUrl)}" target="_blank" rel="noreferrer noopener">Visit website ↗</a>` : ""}</div>${descriptionMarkup}</section><section class="project-media">${media}</section><nav class="project-nav"><a href="${projectHref(previous)}">Prev</a><a href="works.html">Back</a><a href="${projectHref(next)}">Next</a></nav>`;
   }
 
   const templates = { home: homeTemplate, works: worksTemplate, about: aboutTemplate, contact: contactTemplate, project: projectTemplate };

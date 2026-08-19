@@ -65,7 +65,7 @@
     "behance-121241289": projectMedia("10-collagen-packaging", ["00.png", "01.png", "AD6C1649.jpg", "AD6C1677.jpg", "AD6C1695.jpg", "AD6C1742.jpg", "NARRATE_鋁袋_0908-02.png", "產品3D模型_單包2PNG.png", "單包_側01.png", "單包側.png"]),
     "behance-121306305": projectMedia("11-master-tai", ["太師傅包裝合成_0610.jpg", "太師傅包裝合成_紙盒_掉落_0627.jpg", "太師傅包裝合成_紙盒_單.jpg", "太師傅包裝合成_紙盒_雙.jpg", "太師傅紙袋合成_0610.jpg", "太師傅紙袋合成_漂浮.jpg", "太師傅紙袋合成03.jpg", "太師傅網頁用A01-01-01.jpg", "太師傅網頁用A01-01-02-02.jpg", "太師傅鋁袋合成.jpg", "太師傅鋁袋合成_掉落.jpg"]),
     "behance-120740315": projectMedia("13-ic-studio", ["IC_封面_工作區域 1.jpg", "IC_封面_工作區域 1 複本.jpg", "LOGO_GRIDE-01.jpg", "LOGO_GRIDE-02.jpg", "LOGO_GRIDE-03.jpg", "Business-Card-Mockup_IC.jpg", "Mockup.jpg", "NEWShopping Bag PSD MockUp 2.jpg", "Shopping Bag PSD MockUp 2.jpg", "ALLbranding psd mockup.jpg", "paper.jpg", "吊卡.jpg", "4.jpg", "5-2.jpg"]),
-    "behance-117426693": projectMedia("14-narrate", ["LOGO_0410-01.jpg", "LOGO_0410-02.jpg", "LOGO_0410-03.jpg", "LOGO_0410-04.jpg", "LOGO_0410-05.jpg", "LOGO_0410-06.jpg", "LOGO1.jpg", "LOGO2.jpg", "LOGO3.jpg", "名片04.jpg", "unnamed.jpg", "Webp.net-gifmaker.gif"]),
+    "behance-117426693": projectMedia("14-narrate", ["Webp.net-gifmaker.gif", "LOGO_0410-01.jpg", "LOGO_0410-02.jpg", "LOGO_0410-03.jpg", "LOGO_0410-04.jpg", "LOGO_0410-05.jpg", "LOGO_0410-06.jpg", "LOGO1.jpg", "LOGO2.jpg", "LOGO3.jpg", "名片04.jpg", "unnamed.jpg"]),
   });
 
   // Use the current filenames from the numbered project folders, including names in Chinese.
@@ -101,8 +101,9 @@
       "ALLbranding psd mockup.jpg", "paper.jpg", "吊卡.jpg", "4.jpg", "5-2.jpg",
     ]),
     "behance-117426693": projectMedia("14-narrate", [
+      "Webp.net-gifmaker.gif",
       "LOGO_0410-01.jpg", "LOGO_0410-02.jpg", "LOGO_0410-03.jpg", "LOGO_0410-04.jpg", "LOGO_0410-05.jpg", "LOGO_0410-06.jpg",
-      "LOGO1.jpg", "LOGO2.jpg", "LOGO3.jpg", "名片04.jpg", "unnamed.jpg", "Webp.net-gifmaker.gif",
+      "LOGO1.jpg", "LOGO2.jpg", "LOGO3.jpg", "名片04.jpg", "unnamed.jpg",
     ]),
   });
 
@@ -199,7 +200,6 @@
   if (cityGod) {
     cityGod.cover = asset("assets/projects/16-/00.png");
     cityGod.gallery = projectMedia("16-", ["00.png", "01.png", "02.png", "03.png", "04.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg"]);
-    cityGod.description = "2024 - 城市專案（金門迎城隍）\n\n與插畫家小虎聯名偕同合作設計之商品、DP 點陳列設計。\n\n從主視覺 Reference 提案，到周邊商品、互動立體陳列物的創意發想到製作，擬定合適的設計方式執行。\n\n為金門年度盛事「迎城隍」增添一層有趣風采，搭配可愛又療癒的吉祥物，讓原本宗教色彩濃厚的民俗活動增添一抹輕鬆色彩！\n\n聯名商品：香火袋、抱枕、小虎扇。\nDP 點陳列。";
   }
 
   const hiddenWorkKeys = new Set([
