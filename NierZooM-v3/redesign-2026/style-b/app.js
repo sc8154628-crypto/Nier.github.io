@@ -148,7 +148,7 @@
 
   function initGsapText() {
     const selectors = [
-      ".index-card-info span", ".index-footer > p:first-child", ".index-statement", ".page-heading h1", ".work-count", ".view-switch button",
+      ".circular-card-info span", ".index-footer > p:first-child", ".index-statement", ".page-heading h1", ".work-count", ".view-switch button",
       ".work-tile h2", ".work-tile-info > span", ".about-lead h1", ".about-zh",
       ".principle > span", ".principle h2", ".principle p", ".experience > p",
       ".experience-row > span", ".experience-row h3", ".experience-row p", ".contact-copy h1",
@@ -159,122 +159,119 @@
     document.querySelectorAll(selectors.join(",")).forEach(createGsapText);
   }
 
-  function initDepthCarousel() {
-    const carousel = document.getElementById("depth-carousel");
-    if (!carousel) return;
-    const cards = [...carousel.querySelectorAll(".index-card")];
-    const counter = document.getElementById("depth-counter");
-    let activeIndex = 0;
-    let wheelLocked = false;
-    let dragStart = null;
+  function initCircularGallery() {
+    const gallery = document.getElementById("circular-gallery");
+    if (!gallery) return;
+    const cards = [...gallery.querySelectorAll(".circular-card")];
+    const counter = document.getElementById("circular-counter");
+    if (!cards.length) return;
+
+    let current = 0;
+    let destination = 0;
+    let pointerX = null;
+    let pointerStart = null;
+    let lastPointerX = null;
+    let velocity = 0;
     let dragged = false;
-    let autoPlayId = null;
-    const autoPlayDelay = 5200;
+    let frame = null;
+    const scrollEase = reducedMotion ? 1 : 0.04;
+    const scrollSpeed = 2;
 
-    const positionCards = (animate = true) => {
-      const cardWidth = cards[0]?.getBoundingClientRect().width || Math.min(innerWidth * 0.7, 520);
-      const spacing = cardWidth + Math.max(14, innerWidth * 0.014);
+    const wrapOffset = (value) => {
+      const half = cards.length / 2;
+      return ((value + half) % cards.length + cards.length) % cards.length - half;
+    };
+
+    const render = () => {
+      current += (destination - current) * scrollEase;
+      if (Math.abs(destination - current) < 0.0005) current = destination;
+      const cardWidth = cards[0].getBoundingClientRect().width || Math.min(innerWidth * 0.72, 460);
+      const spacing = cardWidth * (innerWidth <= 720 ? 0.76 : 0.68);
+      const bend = innerWidth <= 720 ? 22 : 34;
+      const activeIndex = ((Math.round(current) % cards.length) + cards.length) % cards.length;
+
       cards.forEach((card, index) => {
-        let offset = index - activeIndex;
-        if (offset > cards.length / 2) offset -= cards.length;
-        if (offset < -cards.length / 2) offset += cards.length;
+        const offset = wrapOffset(index - current);
         const distance = Math.abs(offset);
-        const opacity = distance <= 1 ? 1 : 0;
-        const values = {
-          xPercent: -50,
-          yPercent: -50,
-          x: offset * spacing,
-          opacity,
-          duration: animate ? 0.9 : 0,
-          ease: "power4.inOut",
-          overwrite: true,
-        };
-        card.style.zIndex = String(20 - distance);
-        card.style.pointerEvents = distance <= 1 ? "auto" : "none";
-        card.classList.toggle("is-active", distance === 0);
-        card.tabIndex = distance === 0 ? 0 : -1;
-        card.setAttribute("aria-hidden", String(distance !== 0));
-        if (window.gsap && !reducedMotion) gsap.to(card, values);
-        else {
-          card.style.transform = `translate(-50%, -50%) translateX(${values.x}px)`;
-          card.style.opacity = String(opacity);
-        }
+        const visible = distance < (innerWidth <= 720 ? 2.15 : 3.2);
+        const x = offset * spacing;
+        const y = Math.min(distance * distance, 9) * bend;
+        const z = -Math.min(distance, 3) * 105;
+        const rotateY = offset * -15;
+        const scale = Math.max(0.72, 1 - distance * 0.085);
+        card.style.transform = `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), ${z}px) rotateY(${rotateY}deg) scale(${scale})`;
+        card.style.opacity = visible ? String(Math.max(0.18, 1 - distance * 0.22)) : "0";
+        card.style.zIndex = String(30 - Math.round(distance * 4));
+        card.style.pointerEvents = visible ? "auto" : "none";
+        card.classList.toggle("is-active", index === activeIndex);
+        card.tabIndex = index === activeIndex ? 0 : -1;
+        card.setAttribute("aria-hidden", String(!visible));
       });
+
       counter.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(cards.length).padStart(2, "0")}`;
+      frame = requestAnimationFrame(render);
     };
 
-    const goTo = (index) => {
-      activeIndex = (index + cards.length) % cards.length;
-      positionCards();
-    };
-
-    const stopAutoPlay = () => {
-      if (!autoPlayId) return;
-      window.clearInterval(autoPlayId);
-      autoPlayId = null;
-    };
-    const startAutoPlay = () => {
-      if (reducedMotion || autoPlayId || cards.length < 2) return;
-      autoPlayId = window.setInterval(() => goTo(activeIndex + 1), autoPlayDelay);
+    const moveTo = (index) => {
+      const currentIndex = ((Math.round(destination) % cards.length) + cards.length) % cards.length;
+      destination += wrapOffset(index - currentIndex);
     };
 
     cards.forEach((card, index) => card.addEventListener("click", (event) => {
-      if (dragged) {
+      const activeIndex = ((Math.round(destination) % cards.length) + cards.length) % cards.length;
+      if (dragged || index !== activeIndex) {
         event.preventDefault();
-        dragged = false;
-        return;
+        if (!dragged) moveTo(index);
       }
-      if (index !== activeIndex) {
-        event.preventDefault();
-        stopAutoPlay();
-        goTo(index);
-      }
+      dragged = false;
     }));
 
-    carousel.addEventListener("wheel", (event) => {
+    gallery.addEventListener("wheel", (event) => {
       event.preventDefault();
-      if (wheelLocked || Math.max(Math.abs(event.deltaX), Math.abs(event.deltaY)) < 8) return;
-      stopAutoPlay();
-      wheelLocked = true;
-      goTo(activeIndex + (event.deltaY > 0 || event.deltaX > 0 ? 1 : -1));
-      window.setTimeout(() => { wheelLocked = false; }, 420);
+      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+      destination += delta * 0.0015 * scrollSpeed;
     }, { passive: false });
 
-    carousel.addEventListener("pointerdown", (event) => {
-      stopAutoPlay();
-      dragStart = event.clientX;
+    gallery.addEventListener("pointerdown", (event) => {
+      pointerX = event.clientX;
+      pointerStart = event.clientX;
+      lastPointerX = event.clientX;
+      velocity = 0;
       dragged = false;
-      carousel.classList.add("is-dragging");
-      carousel.setPointerCapture?.(event.pointerId);
+      gallery.classList.add("is-dragging");
+      gallery.setPointerCapture?.(event.pointerId);
     });
-    carousel.addEventListener("pointermove", (event) => {
-      if (dragStart === null) return;
-      dragged = Math.abs(event.clientX - dragStart) > 8;
+    gallery.addEventListener("pointermove", (event) => {
+      if (pointerX === null) return;
+      const width = cards[0].getBoundingClientRect().width || 400;
+      const delta = event.clientX - pointerX;
+      velocity = (lastPointerX - event.clientX) / Math.max(width * 0.68, 1);
+      destination -= delta / Math.max(width * 0.68, 1);
+      dragged = dragged || Math.abs(event.clientX - pointerStart) > 7;
+      pointerX = event.clientX;
+      lastPointerX = event.clientX;
     });
-    carousel.addEventListener("pointerup", (event) => {
-      if (dragStart !== null && Math.abs(event.clientX - dragStart) > 42) goTo(activeIndex + (event.clientX < dragStart ? 1 : -1));
-      dragStart = null;
-      carousel.classList.remove("is-dragging");
+    const releasePointer = () => {
+      if (pointerX === null) return;
+      destination += velocity * 5.5;
+      pointerX = null;
+      pointerStart = null;
+      lastPointerX = null;
+      gallery.classList.remove("is-dragging");
+    };
+    gallery.addEventListener("pointerup", releasePointer);
+    gallery.addEventListener("pointercancel", releasePointer);
+    gallery.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight") destination = Math.round(destination) + 1;
+      if (event.key === "ArrowLeft") destination = Math.round(destination) - 1;
     });
-    carousel.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowRight") { stopAutoPlay(); goTo(activeIndex + 1); }
-      if (event.key === "ArrowLeft") { stopAutoPlay(); goTo(activeIndex - 1); }
-    });
-    document.getElementById("depth-prev")?.addEventListener("click", () => { stopAutoPlay(); goTo(activeIndex - 1); });
-    document.getElementById("depth-next")?.addEventListener("click", () => { stopAutoPlay(); goTo(activeIndex + 1); });
-    carousel.addEventListener("pointerenter", stopAutoPlay);
-    carousel.addEventListener("pointerleave", startAutoPlay);
-    carousel.addEventListener("focusin", stopAutoPlay);
-    carousel.addEventListener("focusout", (event) => { if (!carousel.contains(event.relatedTarget)) startAutoPlay(); });
-    document.addEventListener("visibilitychange", () => document.hidden ? stopAutoPlay() : startAutoPlay());
-    window.addEventListener("resize", () => positionCards(false), { passive: true });
-    positionCards(false);
-    startAutoPlay();
+    window.addEventListener("pagehide", () => cancelAnimationFrame(frame), { once: true });
+    render();
   }
 
   function homeTemplate() {
-    const cards = works.map((work, index) => `<a class="index-card" data-index="${index}" href="${escapeHtml(href(work))}"${target(work)}><div class="index-card-media"><img src="${escapeHtml(work.cover)}" alt="${escapeHtml(work.title)}" loading="${index < 4 ? "eager" : "lazy"}" draggable="false" decoding="async"></div><div class="index-card-info"><span>${escapeHtml(work.title)}</span><span>${work.year}</span></div></a>`).join("");
-    return `<section class="index-stage"><div class="depth-carousel" id="depth-carousel" tabindex="0" aria-label="Selected work carousel" data-lenis-prevent><div class="depth-stage">${cards}</div><div class="depth-controls"><button class="depth-control" id="depth-prev" type="button" aria-label="Previous project">←</button><span class="depth-counter" id="depth-counter"></span><button class="depth-control" id="depth-next" type="button" aria-label="Next project">→</button></div></div><div class="index-footer"><p>Independent<br>Visual Designer</p><p class="index-statement">Brand identity, web design and visual systems shaped with clarity and purpose.</p><p class="index-time">Taiwan<br><span id="stage-clock">GMT +8</span></p></div></section>`;
+    const cards = works.map((work, index) => `<a class="circular-card" data-index="${index}" href="${escapeHtml(href(work))}"${target(work)}><div class="circular-card-media"><img src="${escapeHtml(work.cover)}" alt="${escapeHtml(work.title)}" loading="${index < 5 ? "eager" : "lazy"}" draggable="false" decoding="async"></div><div class="circular-card-info"><span>${escapeHtml(work.title)}</span><span>${work.year}</span></div></a>`).join("");
+    return `<section class="index-stage"><div class="circular-gallery" id="circular-gallery" tabindex="0" aria-label="Circular project gallery" data-lenis-prevent><div class="circular-stage">${cards}</div><span class="circular-counter" id="circular-counter"></span><span class="circular-hint">Drag / Scroll</span></div><div class="index-footer"><p>Independent<br>Visual Designer</p><p class="index-statement">Brand identity, web design and visual systems shaped with clarity and purpose.</p><p class="index-time">Taiwan<br><span id="stage-clock">GMT +8</span></p></div></section>`;
   }
 
   function projectMediaMarkup(work) {
@@ -333,7 +330,7 @@
     setFoldText(menu, open ? "Close" : "Menu");
   });
 
-  initDepthCarousel();
+  initCircularGallery();
 
   document.querySelectorAll("[data-view]").forEach((button) => button.addEventListener("click", () => {
     const collection = document.getElementById("work-collection");
